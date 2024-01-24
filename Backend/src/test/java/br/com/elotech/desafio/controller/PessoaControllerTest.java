@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import br.com.elotech.desafio.DTO.EnderecoDTO;
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import br.com.elotech.desafio.entity.Endereco;
 import br.com.elotech.desafio.service.PessoaService;
 import br.com.elotech.desafio.entity.Pessoa;

@@ -2,9 +2,12 @@ package br.com.elotech.desafio.service;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.elotech.desafio.entity.Endereco;
+import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.repository.EnderecoRepository;
 
 @Service
@@ -18,6 +21,10 @@ public class EnderecoService {
 
     public Optional<Endereco> findById(Long id){
         return enderecoRepository.findById(id);
+    }
+
+    public Page<Endereco> findByPessoa(Pessoa pessoa, Pageable pageable){
+        return enderecoRepository.findByPessoa(pessoa, pageable);
     }
 
     public Endereco saveEndereco(Endereco endereco){
@@ -49,5 +56,10 @@ public class EnderecoService {
     }
 
     public void deleteTodosEnderecos(){ enderecoRepository.deleteAll(); }
+
+    public Endereco createEnderecoByCEP(String CEP){
+        CEPService cepService = new CEPService();
+        return cepService.getEnderecoByCEP(CEP);
+    }
 
 }

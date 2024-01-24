@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 
 import javax.validation.constraints.NotNull;
 
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import lombok.Getter;
 import lombok.Setter;
 

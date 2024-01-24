@@ -1,5 +1,6 @@
-package br.com.elotech.desafio.DTO;
+package br.com.elotech.desafio.entity.DTO;
 
+import br.com.elotech.desafio.entity.Pessoa;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,4 +12,5 @@ public class EnderecoDTO {
     private String numero;
     private String cidade;
     private String uf;
+    private Pessoa pessoa;
 }

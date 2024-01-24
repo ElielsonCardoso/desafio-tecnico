@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import br.com.elotech.desafio.DTO.EnderecoDTO;
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import br.com.elotech.desafio.entity.Endereco;
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.repository.PessoaRepository;
@@ -197,6 +197,19 @@ public class PessoaServiceTest {
 
         assertThrows(IllegalArgumentException.class, () -> {
             pessoaService.adicionarEndereco(2L, novoEndereco);
+        });
+    }
+
+    @Test
+    void testRemoverEndereco(){
+        when(pessoaRepository.findById(1L)).thenReturn(Optional.of(pessoa));
+        when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
+
+        Pessoa pessoaRemoveEndereco = pessoaService.removerEndereco(1L, enderecoResidencial);
+        assertThat(pessoaRemoveEndereco.getEnderecos().stream().count()).isEqualTo(0);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pessoaService.removerEndereco(5L, enderecoResidencial);
         });
     }
 

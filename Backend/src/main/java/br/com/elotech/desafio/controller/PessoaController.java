@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 
-import br.com.elotech.desafio.DTO.EnderecoDTO;
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.service.PessoaService;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/pessoas")
+@RequestMapping("/api/pessoa")
 public class PessoaController {
 
     private final PessoaService pessoaService;

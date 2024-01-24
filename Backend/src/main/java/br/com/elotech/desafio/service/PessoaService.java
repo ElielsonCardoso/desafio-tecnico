@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.entity.Endereco;
-import br.com.elotech.desafio.DTO.EnderecoDTO;
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import br.com.elotech.desafio.repository.PessoaRepository;
 
 @Service
@@ -82,10 +82,10 @@ public class PessoaService {
     }
 
     public Pessoa adicionarEndereco(Long pessoaId, EnderecoDTO enderecoDTO) {
-        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(pessoaId);
+        Optional<Pessoa> findPessoa = pessoaRepository.findById(pessoaId);
 
-        if (pessoaOptional.isPresent()) {
-            Pessoa pessoa = pessoaOptional.get();
+        if (findPessoa.isPresent()) {
+            Pessoa pessoa = findPessoa.get();
 
             Endereco novoEndereco = new Endereco();
             novoEndereco.setCep(enderecoDTO.getCep());
@@ -95,6 +95,19 @@ public class PessoaService {
             novoEndereco.setUf(enderecoDTO.getUf());
 
             pessoa.adicionarEndereco(novoEndereco);
+
+            return pessoaRepository.save(pessoa);
+        }else {
+            throw new IllegalArgumentException("Não existe pessoa com ID " + pessoaId + "!");
+        }
+    }
+
+    public Pessoa removerEndereco(Long pessoaId, Endereco endereco) {
+        Optional<Pessoa> findPessoa = pessoaRepository.findById(pessoaId);
+
+        if (findPessoa.isPresent()) {
+            Pessoa pessoa = findPessoa.get();
+            pessoa.removerEndereco(endereco);
 
             return pessoaRepository.save(pessoa);
         }else {

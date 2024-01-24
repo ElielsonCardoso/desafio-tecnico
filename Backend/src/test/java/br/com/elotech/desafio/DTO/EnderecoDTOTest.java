@@ -2,7 +2,7 @@ package br.com.elotech.desafio.DTO;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.elotech.desafio.entity.Endereco;
+import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

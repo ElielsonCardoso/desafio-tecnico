@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="br.com.elotech.desafio.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-24T12:50:59" hostname="DESKTOP-Q3AKEKB" time="5.466">
-  <properties/>
-  <testcase name="main()" classname="br.com.elotech.desafio.MainTest" time="5.466"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
