@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.elotech.desafio.service.PessoaServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-24T12:51:07" hostname="DESKTOP-Q3AKEKB" time="0.616">
+  <properties/>
+  <testcase name="testGetQuantidadePessoas()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.258"/>
+  <testcase name="testUpdatePessoa()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.161"/>
+  <testcase name="testFindById()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.039"/>
+  <testcase name="testDeletePessoa()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.008"/>
+  <testcase name="testSavePessoa()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.02"/>
+  <testcase name="testFindByNomeAndCpf()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.037"/>
+  <testcase name="testAdicionarEndereco()" classname="br.com.elotech.desafio.service.PessoaServiceTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

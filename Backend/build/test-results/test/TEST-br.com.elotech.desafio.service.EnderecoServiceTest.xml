@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.elotech.desafio.service.EnderecoServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-01-24T12:51:06" hostname="DESKTOP-Q3AKEKB" time="0.812">
+  <properties/>
+  <testcase name="testSaveEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.644"/>
+  <testcase name="testDeleteEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.063"/>
+  <testcase name="testFindById()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.025"/>
+  <testcase name="testDeleteTodosEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.008"/>
+  <testcase name="testUpdateEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.058"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

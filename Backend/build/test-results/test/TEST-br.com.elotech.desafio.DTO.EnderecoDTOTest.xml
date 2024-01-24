@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.elotech.desafio.DTO.EnderecoDTOTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-24T12:51:04" hostname="DESKTOP-Q3AKEKB" time="0.397">
+  <properties/>
+  <testcase name="testEmpenhoDTO()" classname="br.com.elotech.desafio.DTO.EnderecoDTOTest" time="0.397"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
