@@ -7,10 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.com.caelum.stella.validation.InvalidStateException;
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.entity.Endereco;
 import br.com.elotech.desafio.entity.DTO.EnderecoDTO;
 import br.com.elotech.desafio.repository.PessoaRepository;
+
+import br.com.caelum.stella.validation.CPFValidator;
 
 @Service
 public class PessoaService {
@@ -48,6 +51,13 @@ public class PessoaService {
 
         if (pessoa.getEnderecos().stream().count() == 0){
             throw new IllegalArgumentException("Obrigatório preencher pelo menos um endereço!");
+        }
+
+        CPFValidator cpfValidator = new CPFValidator();
+        try {
+            cpfValidator.assertValid(pessoa.getCpf());
+        } catch (InvalidStateException e) {
+            throw new IllegalArgumentException("CPF inválido!");
         }
     }
 

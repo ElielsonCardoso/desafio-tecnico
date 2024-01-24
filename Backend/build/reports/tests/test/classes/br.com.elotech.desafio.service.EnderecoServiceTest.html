@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - EnderecoControllerTest</title>
+<title>Test results - EnderecoServiceTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>EnderecoControllerTest</h1>
+<h1>EnderecoServiceTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/br.com.elotech.desafio.controller.html">br.com.elotech.desafio.controller</a> &gt; EnderecoControllerTest</div>
+<a href="../packages/br.com.elotech.desafio.service.html">br.com.elotech.desafio.service</a> &gt; EnderecoServiceTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.592s</div>
+<div class="counter">4.485s</div>
 <p>duration</p>
 </div>
 </td>
@@ -63,6 +63,9 @@
 <li>
 <a href="#tab0">Tests</a>
 </li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -75,41 +78,55 @@
 </tr>
 </thead>
 <tr>
+<td class="success">testCreateEnderecoByCEP()</td>
+<td class="success">3.721s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testDeleteEndereco()</td>
-<td class="success">0.006s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testDeleteTodosEndereco()</td>
-<td class="success">0.009s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testFindById()</td>
-<td class="success">0.010s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testFindByPessoa()</td>
-<td class="success">0.532s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testGetEnderecoByCEP()</td>
-<td class="success">0.007s</td>
+<td class="success">0.738s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSaveEndereco()</td>
-<td class="success">0.017s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testUpdateEndereco()</td>
-<td class="success">0.011s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 </table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>13:17:53.898 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/92420460/json
+13:17:54.227 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+13:17:54.937 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+13:17:54.951 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
+13:17:55.062 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/99999999/json
+13:17:55.064 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
+</pre>
+</span>
 </div>
 </div>
 <div id="footer">

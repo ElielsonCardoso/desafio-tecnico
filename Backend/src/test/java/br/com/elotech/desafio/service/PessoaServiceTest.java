@@ -145,6 +145,12 @@ public class PessoaServiceTest {
         assertThrows(IllegalArgumentException.class, () -> {
             pessoaService.savePessoa(novaPessoa);
         });
+
+        pessoa.setCpf("999999");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pessoaService.savePessoa(novaPessoa);
+        });
     }
 
     @Test

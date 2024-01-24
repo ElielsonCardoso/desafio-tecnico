@@ -27,7 +27,7 @@ public class CEPService {
         CEPResponse cepResponse = restTemplate.getForObject(url, CEPResponse.class);
         if ((cepResponse != null)) {
             if (cepResponse.getErro() != null && cepResponse.getErro()) {
-                throw new IllegalArgumentException("Não foi possível obter informações do CEP informado.");
+                throw new IllegalArgumentException("CEP inválido!");
             }
             Endereco endereco = new Endereco();
             endereco.setCep(cep);

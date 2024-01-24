@@ -28,6 +28,7 @@ dependencies {
     implementation 'javax.validation:validation-api:2.0.1.Final'
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'br.com.caelum.stella:caelum-stella-core:2.1.6'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testImplementation 'org.assertj:assertj-core:3.21.0'

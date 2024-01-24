@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.elotech.desafio.service.EnderecoServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-24T16:17:50" hostname="DESKTOP-Q3AKEKB" time="4.498">
+  <properties/>
+  <testcase name="testFindByPessoa()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.738"/>
+  <testcase name="testSaveEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.004"/>
+  <testcase name="testDeleteEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.003"/>
+  <testcase name="testFindById()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.005"/>
+  <testcase name="testDeleteTodosEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.005"/>
+  <testcase name="testCreateEnderecoByCEP()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="3.721"/>
+  <testcase name="testUpdateEndereco()" classname="br.com.elotech.desafio.service.EnderecoServiceTest" time="0.009"/>
+  <system-out><![CDATA[13:17:53.898 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/92420460/json
+13:17:54.227 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+13:17:54.937 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+13:17:54.951 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
+13:17:55.062 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/99999999/json
+13:17:55.064 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

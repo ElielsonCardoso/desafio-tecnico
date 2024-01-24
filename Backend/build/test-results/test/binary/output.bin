@@ -1,0 +1,8 @@
+"€13:17:53.898 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/92420460/json
+"~13:17:54.227 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+"`13:17:54.937 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+"‘13:17:54.951 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
+"€13:17:55.062 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://viacep.com.br/ws/99999999/json
+"~13:17:55.064 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[application/json, application/*+json]
+"`13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+"‘13:17:55.479 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [br.com.elotech.desafio.service.response.CEPResponse]
