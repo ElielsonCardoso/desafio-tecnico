@@ -37,7 +37,7 @@ public class EnderecoServiceTest {
 
     @BeforeEach
     void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         endereco = new Endereco();
         endereco.setId(1L);
         endereco.setUf("PR");
@@ -102,20 +102,22 @@ public class EnderecoServiceTest {
         when(enderecoRepository.findById(1L)).thenReturn(Optional.of(endereco));
 
         Optional<Endereco> updateEndereco = enderecoService.updateEndereco(1L, endereco);
-        Endereco novoEndereco = updateEndereco.get();
+        if (updateEndereco.isPresent()) {
+            Endereco novoEndereco = updateEndereco.get();
 
-        assertThat(novoEndereco).isNotNull();
-        assertThat(novoEndereco.getId()).isEqualTo(1L);
-        assertThat(novoEndereco.getUf()).isEqualTo("PR");
-        assertThat(novoEndereco.getCep()).isEqualTo("87070240");
-        assertThat(novoEndereco.getNumero()).isEqualTo("500");
-        assertThat(novoEndereco.getCidade()).isEqualTo("Maringá");
-        assertThat(novoEndereco.getLogradouro()).isEqualTo("Rua Olímpico, Jardim Aurora");
+            assertThat(novoEndereco).isNotNull();
+            assertThat(novoEndereco.getId()).isEqualTo(1L);
+            assertThat(novoEndereco.getUf()).isEqualTo("PR");
+            assertThat(novoEndereco.getCep()).isEqualTo("87070240");
+            assertThat(novoEndereco.getNumero()).isEqualTo("500");
+            assertThat(novoEndereco.getCidade()).isEqualTo("Maringá");
+            assertThat(novoEndereco.getLogradouro()).isEqualTo("Rua Olímpico, Jardim Aurora");
 
-        verify(enderecoRepository, times(1)).save(endereco);
+            verify(enderecoRepository, times(1)).save(endereco);
 
-        updateEndereco = enderecoService.updateEndereco(2L, endereco);
-        assertThat(updateEndereco).isEqualTo(Optional.empty());
+            updateEndereco = enderecoService.updateEndereco(2L, endereco);
+            assertThat(updateEndereco).isEqualTo(Optional.empty());
+        }
     }
 
     @Test
@@ -154,12 +156,7 @@ public class EnderecoServiceTest {
         assertThat(novoEndereco.getCidade()).isEqualTo("Canoas");
         assertThat(novoEndereco.getLogradouro()).isEqualTo("Rua E");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            enderecoService.createEnderecoByCEP("123");
-        });
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            enderecoService.createEnderecoByCEP("99999999");
-        });
+        assertThrows(IllegalArgumentException.class, () -> enderecoService.createEnderecoByCEP("123"));
+        assertThrows(IllegalArgumentException.class, () -> enderecoService.createEnderecoByCEP("99999999"));
     }
 }

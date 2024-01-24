@@ -1,8 +1,6 @@
 package br.com.elotech.desafio.service;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.web.client.RestTemplate;
 
 import br.com.elotech.desafio.service.response.CEPResponse;
@@ -22,8 +20,6 @@ public class CEPServiceTest {
 
         CEPService cepService = new CEPService(restTemplate);
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            cepService.getEnderecoByCEP("12345678");
-        });
+        assertThrows(IllegalArgumentException.class, () -> cepService.getEnderecoByCEP("12345678"));
     }
 }

@@ -6,7 +6,6 @@ import org.springframework.web.client.RestTemplate;
 import br.com.elotech.desafio.entity.Endereco;
 import br.com.elotech.desafio.service.response.CEPResponse;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @Service
 @AllArgsConstructor

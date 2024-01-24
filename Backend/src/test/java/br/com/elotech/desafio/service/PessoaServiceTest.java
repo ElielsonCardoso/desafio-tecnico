@@ -43,7 +43,7 @@ public class PessoaServiceTest {
 
     @BeforeEach
     void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         pessoa = new Pessoa();
         pessoa.setId(1L);
         pessoa.setIdade(25);
@@ -79,7 +79,7 @@ public class PessoaServiceTest {
         assertThat(pessoaEncontrada.getNome()).isEqualTo("Igor Nelson da Cunha");
         assertThat(pessoaEncontrada.getCpf()).isEqualTo("15723979930");
         assertThat(pessoaEncontrada.getTelefone()).isEqualTo("44999988777");
-        assertThat(pessoaEncontrada.getEnderecos().stream().count()).isEqualTo(1);
+        assertThat(pessoaEncontrada.getEnderecos().size()).isEqualTo(1);
     }
 
     @Test
@@ -114,43 +114,33 @@ public class PessoaServiceTest {
         assertThat(novaPessoa.getNome()).isEqualTo("Igor Nelson da Cunha");
         assertThat(novaPessoa.getCpf()).isEqualTo("15723979930");
         assertThat(novaPessoa.getTelefone()).isEqualTo("44999988777");
-        assertThat(novaPessoa.getEnderecos().stream().count()).isEqualTo(1);
+        assertThat(novaPessoa.getEnderecos().size()).isEqualTo(1);
 
         novaPessoa.setTelefone("123");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.savePessoa(novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.savePessoa(novaPessoa));
 
         novaPessoa.setTelefone("44999988777");
         novaPessoa.removerEndereco(enderecoResidencial);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.savePessoa(novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () ->pessoaService.savePessoa(novaPessoa));
 
         novaPessoa.adicionarEndereco(enderecoResidencial);
 
         LocalDate dataAtual = LocalDate.now();
         novaPessoa.setDataNascimento(dataAtual.plusDays(1));
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.savePessoa(novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.savePessoa(novaPessoa));
 
         pessoa.setDataNascimento(LocalDate.of(1997, 10, 16));
 
         when(pessoaRepository.existsByCpf(pessoa.getCpf())).thenReturn(true);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.savePessoa(novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.savePessoa(novaPessoa));
 
         pessoa.setCpf("999999");
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.savePessoa(novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.savePessoa(novaPessoa));
     }
 
     @Test
@@ -168,13 +158,11 @@ public class PessoaServiceTest {
         assertThat(novaPessoa.getNome()).isEqualTo("Igor Nelson da Cunha");
         assertThat(novaPessoa.getCpf()).isEqualTo("15723979930");
         assertThat(novaPessoa.getTelefone()).isEqualTo("44999988777");
-        assertThat(novaPessoa.getEnderecos().stream().count()).isEqualTo(1);
+        assertThat(novaPessoa.getEnderecos().size()).isEqualTo(1);
 
         verify(pessoaRepository, times(1)).save(pessoa);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.updatePessoa(2L, novaPessoa);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.updatePessoa(2L, novaPessoa));
     }
 
     @Test
@@ -199,11 +187,9 @@ public class PessoaServiceTest {
         when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
 
         Pessoa pessoaNovoEndereco = pessoaService.adicionarEndereco(1L, novoEndereco);
-        assertThat(pessoaNovoEndereco.getEnderecos().stream().count()).isEqualTo(2);
+        assertThat(pessoaNovoEndereco.getEnderecos().size()).isEqualTo(2);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.adicionarEndereco(2L, novoEndereco);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.adicionarEndereco(2L, novoEndereco));
     }
 
     @Test
@@ -212,11 +198,9 @@ public class PessoaServiceTest {
         when(pessoaRepository.save(pessoa)).thenReturn(pessoa);
 
         Pessoa pessoaRemoveEndereco = pessoaService.removerEndereco(1L, enderecoResidencial);
-        assertThat(pessoaRemoveEndereco.getEnderecos().stream().count()).isEqualTo(0);
+        assertThat(pessoaRemoveEndereco.getEnderecos().size()).isEqualTo(0);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            pessoaService.removerEndereco(5L, enderecoResidencial);
-        });
+        assertThrows(IllegalArgumentException.class, () -> pessoaService.removerEndereco(5L, enderecoResidencial));
     }
 
 }

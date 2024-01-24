@@ -49,7 +49,7 @@ public class PessoaService {
             throw new IllegalArgumentException("A data de nascimento não pode ser maior que a data atual!");
         }
 
-        if (pessoa.getEnderecos().stream().count() == 0){
+        if (pessoa.getEnderecos().size() == 0){
             throw new IllegalArgumentException("Obrigatório preencher pelo menos um endereço!");
         }
 

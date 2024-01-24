@@ -43,9 +43,9 @@ public class PessoaTest {
         assertThat(pessoa.getNome()).isEqualTo("Igor Nelson da Cunha");
         assertThat(pessoa.getCpf()).isEqualTo("15723979930");
         assertThat(pessoa.getTelefone()).isEqualTo("44999988777");
-        assertThat(pessoa.getEnderecos().stream().count()).isEqualTo(2);
+        assertThat(pessoa.getEnderecos().size()).isEqualTo(2);
 
         pessoa.removerEndereco(enderecoResidencial);
-        assertThat(pessoa.getEnderecos().stream().count()).isEqualTo(1);
+        assertThat(pessoa.getEnderecos().size()).isEqualTo(1);
     }
 }
