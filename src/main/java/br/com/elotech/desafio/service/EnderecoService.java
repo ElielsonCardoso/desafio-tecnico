@@ -2,7 +2,6 @@ package br.com.elotech.desafio.service;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.elotech.desafio.entity.Endereco;
@@ -13,12 +12,11 @@ public class EnderecoService {
 
     private final EnderecoRepository enderecoRepository;
 
-    @Autowired
     public EnderecoService(EnderecoRepository enderecoRepository){
         this.enderecoRepository = enderecoRepository;
     }
 
-    public Optional<Endereco> getEnderecoById(Long id){
+    public Optional<Endereco> findById(Long id){
         return enderecoRepository.findById(id);
     }
 
@@ -50,8 +48,6 @@ public class EnderecoService {
         enderecoRepository.deleteById(id);
     }
 
-    public void deleteTodosEndereco(){
-        enderecoRepository.deleteAll();
-    }
+    public void deleteTodosEnderecos(){ enderecoRepository.deleteAll(); }
 
 }

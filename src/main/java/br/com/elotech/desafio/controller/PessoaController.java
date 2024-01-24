@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 
-import br.com.elotech.desafio.entity.EnderecoDTO;
+import br.com.elotech.desafio.DTO.EnderecoDTO;
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.service.PessoaService;
 import org.springframework.data.domain.PageRequest;
@@ -32,7 +32,7 @@ public class PessoaController {
         return pessoa.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/pessoas")
+    @GetMapping("/listagem")
     public ResponseEntity<Page<Pessoa>> findByNomeAndCpf(@RequestParam String nome,
             @RequestParam String cpf, @RequestParam int page) {
         Pageable pageable = PageRequest.of(page, 20);

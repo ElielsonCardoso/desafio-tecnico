@@ -6,11 +6,10 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.elotech.desafio.entity.Pessoa;
 import br.com.elotech.desafio.entity.Endereco;
-import br.com.elotech.desafio.entity.EnderecoDTO;
+import br.com.elotech.desafio.DTO.EnderecoDTO;
 import br.com.elotech.desafio.repository.PessoaRepository;
 
 @Service
@@ -18,7 +17,6 @@ public class PessoaService {
 
     private final PessoaRepository pessoaRepository;
 
-    @Autowired
     public PessoaService(PessoaRepository pessoaRepository) {
         this.pessoaRepository = pessoaRepository;
     }
@@ -46,6 +44,10 @@ public class PessoaService {
 
         if (pessoa.getDataNascimento().isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("A data de nascimento não pode ser maior que a data atual!");
+        }
+
+        if (pessoa.getEnderecos().stream().count() == 0){
+            throw new IllegalArgumentException("Obrigatório preencher pelo menos um endereço!");
         }
     }
 
